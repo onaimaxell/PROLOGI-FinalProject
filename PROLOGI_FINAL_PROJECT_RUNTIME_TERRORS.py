@@ -30,7 +30,7 @@ def print_help():
 
 
 #def check_winner(board, player):
-#def get_valid_move(board): <-----------------
+#def get_valid_move(board): <----------------- CONTINUE HERE
 def print_board(board):
     for row, i in enumerate(board):
         print(" | ".join(i))
@@ -50,7 +50,7 @@ def play_game():
     while moves < 9:
         print_board(board)
         print(f"Player {current_player}'s turn.")
-        move = get_valid_move(board)
+        move = get_valid_move(board) # <----------------- CONTINUE HERE
     print("Invalid number!")
 
 def main():
