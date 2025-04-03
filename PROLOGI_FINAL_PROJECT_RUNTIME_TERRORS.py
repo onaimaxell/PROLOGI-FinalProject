@@ -28,9 +28,27 @@ def print_help():
     print("---------")
     print("7 | 8 | 9")
 
+def check_winner(board, player):
+    winning_combinations = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],  # Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],  # Columns
+        [0, 4, 8], [2, 4, 6]             # Diagonals
+    ]
+    for combo in winning_combinations:
+        if all(board[i] == player for i in combo):
+            return True
+    return False
+    
+def get_valid_move(board):
+    while True:
+        try:
+            move = int(input("Enter your move (1-9): "))
+            if move in range(1, 10) and board[move - 1] not in ("X", "O"):
+                return move - 1
+            print("Invalid move! Try again.")
+        except ValueError:
+            print("Invalid input! Please enter a number between 1 and 9.")
 
-#def check_winner(board, player):
-#def get_valid_move(board): <----------------- CONTINUE HERE
 def print_board(board):
     for row, i in enumerate(board):
         print(" | ".join(i))
